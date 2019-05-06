@@ -6,5 +6,4 @@ Feature: Buscar Producto en tienda Ebay.com
     Given usuario ingresa al Homepage
     When  ingresar zapatos en filtro
     When  usuario hace clic en boton buscar
-    When  seleccionar marca Puma
-    Then  imprimir resultado de busqueda
+    Then  imprimir resultado de busqueda en consola  

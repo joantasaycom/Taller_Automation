@@ -8,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
-
 
 public class selenium {
 	
@@ -18,9 +16,7 @@ public class selenium {
 	public static WebDriver driver;
 	public By txt_buscar = By.id("gh-ac");
 	public By btn_buscar = By.id("gh-btn");
-	public By txt_marca = By.id("w3-w0-w2-w2-0[0]");
-	public By cbo_marca = By.cssSelector("#w_1557077534001_cbx");
-	public By resultado = By.cssSelector(".rcnt");
+	public By resultado = By.cssSelector("#w4 > div:nth-child(2) > div > div.srp-controls__control.srp-controls__count > h1");
     
 	@Given("^usuario ingresa al Homepage$")
     public void usuario_ingresa_al_Homepage() throws Throwable {     
@@ -44,27 +40,16 @@ public class selenium {
         Thread.sleep(2000);
     }
   
-	@When("^seleccionar marca Puma$")
-    public void seleccionar_marca_Puma() throws Throwable {
-		  js.executeScript("window.scrollBy(0,500)");
-		  Thread.sleep(5000);
-		  driver.findElement(txt_marca).sendKeys("puma");
-		  Thread.sleep(1000);
-		  driver.findElement(cbo_marca).click();
-		  Thread.sleep(5000);
-    }
-	
-	@Then("^imprimir resultado de busqueda$")
-    public void imprimir_resultado_de_busqueda() throws Throwable {
+	@Then("^imprimir resultado de busqueda en consola$")
+    public void imprimir_resultado_de_busqueda_en_consola() throws Throwable {
 		  
 		  String imprimir;
 		  System.out.println("Hemos Finalizado la búsqueda...");
 		  imprimir = driver.findElement(resultado).getText();
-		  System.out.println("Resultado de la búsqueda para marca en " + "Zapatos" + " es: " +  imprimir);
+		  System.out.println("La busqueda de " + "Zapatos" + " es: " +  imprimir);
 		  Thread.sleep(1000);
 		  driver.quit();
-		
+		  
     }
-	
 	
 }
